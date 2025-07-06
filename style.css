@@ -1,0 +1,5 @@
+
+body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
+#malla { display: grid; gap: 10px; }
+button { padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+button.tachado { text-decoration: line-through; opacity: 0.6; }
