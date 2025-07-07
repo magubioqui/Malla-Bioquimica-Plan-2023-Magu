@@ -17,14 +17,14 @@
     {
       "id": 9,
       "nombre": "Anatom\u00eda e Histolog\u00eda",
-      "cuatrimestre": 4,
+      "cuatrimestre": 3,
       "correlativas_pc": [],
       "aprobada": false
     },
     {
       "id": 10,
       "nombre": "Biolog\u00eda Celular y Molecular",
-      "cuatrimestre": 5,
+      "cuatrimestre": 4,
       "correlativas_pc": [
         9
       ],
