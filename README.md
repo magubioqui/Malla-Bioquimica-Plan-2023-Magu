@@ -1,2 +1,2 @@
-# Malla Interactiva Bioquímica FFyB
+# Malla Interactiva Bioquímica
 Forzar redeploy
