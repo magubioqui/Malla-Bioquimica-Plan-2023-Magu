@@ -37,20 +37,233 @@
     },
     {
       "id": 12,
-      "nombre": "Fisiopatolog\u00eda",
-      "cuatrimestre": 7,
-      "correlativas_pc": [
-        11
-      ],
+      "nombre": "Química Orgánica I",
+      "cuatrimestre": 4,
+      "correlativas_pc": [7],
       "aprobada": false
     },
     {
       "id": 13,
-      "nombre": "Microbiolog\u00eda e Inmunolog\u00eda",
+      "nombre": "Quimica Organica II",
+      "cuatrimestre": 5,
+      "correlativas_pc": [10, 12],
+      "aprobada": false
+    },
+    {
+      "id": 14,
+      "nombre": "Fisiología",
+      "cuatrimestre": 5,
+      "correlativas_pc": [9, 11],
+      "aprobada": false
+    },
+    {
+      "id": 15,
+      "nombre": "Química Analitica",
+      "cuatrimestre": 5,
+      "correlativas_pc": [7, 8],
+      "aprobada": false
+    },
+    {
+      "id": 16,
+      "nombre": "Fisicoquímica",
+      "cuatrimestre": 6,
+      "correlativas_pc": [7, 10],
+      "aprobada": false
+    },
+    {
+      "id": 17,
+      "nombre": "Química Analitica Instrumental",
+      "cuatrimestre": 6,
+      "correlativas_pc": [10, 15],
+      "aprobada": false
+    },
+    {
+      "id": 18,
+      "nombre": "Química Biológica",
+      "cuatrimestre": 6,
+      "correlativas_pc": [11, 13],
+      "aprobada": false
+    },
+    {
+      "id": 19,
+      "nombre": "Fisiopatología",
+      "cuatrimestre": 7,
+      "correlativas_pc": [14, 101, 102, 201, 202, 203, 204],
+      "aprobada": false
+    },
+    {
+      "id": 20,
+      "nombre": "Microbiología",
+      "cuatrimestre": 7,
+      "correlativas_pc": [18, 101, 102, 201, 202, 203, 204],
+      "aprobada": false
+    },
+    {
+      "id": 21,
+      "nombre": "Química Biológica Superior",
+      "cuatrimestre": 7,
+      "correlativas_pc": [16, 17, 18, 101, 102, 201, 202, 203, 204],
+      "aprobada": false
+    },
+    {
+      "id": 22,
+      "nombre": "Genética Molecular",
+      "cuatrimestre": 7,
+      "correlativas_pc": [18, 101, 102, 201, 202, 203, 204],
+      "aprobada": false
+    },
+    {
+      "id": 23,
+      "nombre": "Inmunología",
       "cuatrimestre": 8,
-      "correlativas_pc": [
-        12
-      ],
+      "correlativas_pc": [14, 20],
+      "aprobada": false
+    },
+    {
+      "id": 24,
+      "nombre": "Farmacología",
+      "cuatrimestre": 8,
+      "correlativas_pc": [14, 18, 19],
+      "aprobada": false
+    },
+    {
+      "id": 24,
+      "nombre": "Farmacología",
+      "cuatrimestre": 8,
+      "correlativas_pc": [14, 18, 19],
+      "aprobada": false
+    },
+    {
+      "id": 25,
+      "nombre": "Biotecnología**",
+      "cuatrimestre": 8,
+      "correlativas_pc": [20, 22],
+      "aprobada": false
+    },
+    {
+      "id": 26,
+      "nombre": "Virología**",
+      "cuatrimestre": 8,
+      "correlativas_pc": [20, 22],
+      "aprobada": false
+    },
+    {
+      "id": 27,
+      "nombre": "Nutrición",
+      "cuatrimestre": 8,
+      "correlativas_pc": [14, 18, 19],
+      "aprobada": false
+    },
+    {
+      "id": 28,
+      "nombre": "Microbiología Clínica",
+      "cuatrimestre": 9,
+      "correlativas_pc": [19, 23, 26, 300],
+      "aprobada": false
+    },
+    {
+      "id": 29,
+      "nombre": "Bioquímica Clínica 1",
+      "cuatrimestre": 9,
+      "correlativas_pc": [18, 19, 21, 23, 300],
+      "aprobada": false
+    },
+    {
+      "id": 30,
+      "nombre": "Práct.Prof. Bioquímica Interna 1",
+      "cuatrimestre": 9,
+      "correlativas_pc": [18, 19, 21, 23, 300],
+      "aprobada": false
+    },
+    {
+      "id": 31,
+      "nombre": "Toxicología y Química Legal",
+      "cuatrimestre": 10,
+      "correlativas_pc": [15, 18, 17, 24, 300],
+      "aprobada": false
+    },
+    {
+      "id": 32,
+      "nombre": "Bromatología",
+      "cuatrimestre": 10,
+      "correlativas_pc": [20, 27, 300],
+      "aprobada": false
+    },
+    {
+      "id": 33,
+      "nombre": "Bioquímica de Metabolopatías**",
+      "cuatrimestre": 10,
+      "correlativas_pc": [18, 19, 300],
+      "aprobada": false
+    },
+    {
+      "id": 34,
+      "nombre": "Genética Forense**",
+      "cuatrimestre": 10,
+      "correlativas_pc": [22, 300],
+      "aprobada": false
+    },
+    {
+      "id": 35,
+      "nombre": "Bioquímica Clínica II",
+      "cuatrimestre": 10,
+      "correlativas_pc": [19, 29],
+      "aprobada": false
+    },
+    {
+      "id": 36,
+      "nombre": "Práct. Prof. Bioquímica Interna II",
+      "cuatrimestre": 10,
+      "correlativas_pc": [19, 29],
+      "aprobada": false
+    },
+    {
+      "id": 37,
+      "nombre": "Práct. Prof. Bioquímica Externa",
+      "cuatrimestre": 11,
+      "correlativas_pc": [29, 30, 35, 36],
+      "aprobada": false
+    },
+    {
+      "id": 38,
+      "nombre": "Bioquímica Clinica III",
+      "cuatrimestre": 11,
+      "correlativas_pc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 101, 102, 103, 104, 105, 201, 202, 203, 204, 300],
+      "aprobada": false
+    },
+    {
+      "id": 39,
+      "nombre": "Asignatura Optativa de la Orientación I",
+      "cuatrimestre": 11,
+      "correlativas_pc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 101, 102, 103, 104, 105, 201, 202, 203, 204, 300],
+      "aprobada": false
+    },
+    {
+      "id": 40,
+      "nombre": "Asignatura Optativa de la Orientación II",
+      "cuatrimestre": 11,
+      "correlativas_pc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 101, 102, 103, 104, 105, 201, 202, 203, 204, 300],
+      "aprobada": false
+    },
+    {
+      "id": 41,
+      "nombre": "Inmunología de los Procesos Infecciosos",
+      "cuatrimestre": 11,
+      "correlativas_pc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 101, 102, 103, 104, 105, 201, 202, 203, 204, 300],
+      "aprobada": false
+    },
+    {
+      "id": 42,
+      "nombre": "Asignatura Electiva Cualquiera I",
+      "cuatrimestre": 11,
+      "correlativas_pc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 101, 102, 103, 104, 105, 201, 202, 203, 204, 300],
+      "aprobada": false
+    },
+    {
+      "id": 43,
+      "nombre": "Asignatura Electiva Cualquiera II",
+      "cuatrimestre": 11,
+      "correlativas_pc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 101, 102, 103, 104, 105, 201, 202, 203, 204, 300],
       "aprobada": false
     },
     {
@@ -121,10 +334,8 @@
     {
       "id": 300,
       "nombre": "Laboratorio Integrador",
-      "cuatrimestre": 10,
-      "correlativas_pc": [
-        13
-      ],
+      "cuatrimestre": 0,
+      "correlativas_pc": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
       "aprobada": false
     }
   ]
