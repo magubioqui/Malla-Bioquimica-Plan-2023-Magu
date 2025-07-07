@@ -1,6 +1,6 @@
 let colores = {};
 
-fetch("colors.json")
+fetch("colors_Bioquimica2023.json")
   .then(res => res.json())
   .then(dataColores => {
     colores = dataColores;
