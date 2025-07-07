@@ -1,1 +1,137 @@
-{"materias": [{"id": 7, "nombre": "Química General e Inorgánica", "cuatrimestre": 1, "correlativas_pc": [], "correlativas_pr": []}]}
+{
+  "materias": [
+    {
+      "id": 7,
+      "nombre": "Qu\u00edmica General e Inorg\u00e1nica",
+      "cuatrimestre": 1,
+      "correlativas_pc": [],
+      "tipo": "introductoria"
+    },
+    {
+      "id": 8,
+      "nombre": "Matem\u00e1tica",
+      "cuatrimestre": 1,
+      "correlativas_pc": [],
+      "tipo": "introductoria"
+    },
+    {
+      "id": 9,
+      "nombre": "Anatom\u00eda e Histolog\u00eda",
+      "cuatrimestre": 2,
+      "correlativas_pc": [
+        7
+      ],
+      "tipo": "introductoria"
+    },
+    {
+      "id": 10,
+      "nombre": "Biolog\u00eda Celular y Molecular",
+      "cuatrimestre": 3,
+      "correlativas_pc": [
+        9
+      ],
+      "tipo": "media"
+    },
+    {
+      "id": 11,
+      "nombre": "Fisiolog\u00eda",
+      "cuatrimestre": 4,
+      "correlativas_pc": [
+        10
+      ],
+      "tipo": "media"
+    },
+    {
+      "id": 12,
+      "nombre": "Fisiopatolog\u00eda",
+      "cuatrimestre": 5,
+      "correlativas_pc": [
+        11
+      ],
+      "tipo": "avanzada"
+    },
+    {
+      "id": 13,
+      "nombre": "Microbiolog\u00eda e Inmunolog\u00eda",
+      "cuatrimestre": 6,
+      "correlativas_pc": [
+        12
+      ],
+      "tipo": "avanzada"
+    },
+    {
+      "id": 100,
+      "nombre": "Ingl\u00e9s",
+      "cuatrimestre": 0,
+      "correlativas_pc": [],
+      "tipo": "ciclo_comun"
+    },
+    {
+      "id": 101,
+      "nombre": "Bioestad\u00edstica",
+      "cuatrimestre": 0,
+      "correlativas_pc": [
+        8
+      ],
+      "tipo": "ciclo_comun"
+    },
+    {
+      "id": 102,
+      "nombre": "Legislaci\u00f3n Bioqu\u00edmica y DDHH",
+      "cuatrimestre": 0,
+      "correlativas_pc": [],
+      "tipo": "ciclo_superior"
+    },
+    {
+      "id": 103,
+      "nombre": "Salud P\u00fablica",
+      "cuatrimestre": 0,
+      "correlativas_pc": [],
+      "tipo": "ciclo_superior"
+    },
+    {
+      "id": 104,
+      "nombre": "Pr\u00e1ctica Social Educativa",
+      "cuatrimestre": 0,
+      "correlativas_pc": [],
+      "tipo": "ciclo_superior"
+    },
+    {
+      "id": 200,
+      "nombre": "Taller 1 - Rol Cient\u00edfico",
+      "cuatrimestre": 0,
+      "correlativas_pc": [],
+      "tipo": "taller"
+    },
+    {
+      "id": 201,
+      "nombre": "Taller 2 - Rol Cient\u00edfico",
+      "cuatrimestre": 0,
+      "correlativas_pc": [],
+      "tipo": "taller"
+    },
+    {
+      "id": 202,
+      "nombre": "Taller 3 - Rol Cient\u00edfico",
+      "cuatrimestre": 0,
+      "correlativas_pc": [],
+      "tipo": "taller"
+    },
+    {
+      "id": 203,
+      "nombre": "Taller 4 - Rol Cient\u00edfico",
+      "cuatrimestre": 0,
+      "correlativas_pc": [],
+      "tipo": "taller"
+    },
+    {
+      "id": 300,
+      "nombre": "Laboratorio Integrador",
+      "cuatrimestre": 8,
+      "correlativas_pc": [
+        13
+      ],
+      "tipo": "integrador"
+    }
+  ]
+}
