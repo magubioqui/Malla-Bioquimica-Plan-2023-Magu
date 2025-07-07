@@ -48,10 +48,9 @@ body {
 
 .materia.tachado {
   text-decoration: line-through;
-  background-color: #018E42;
-  color: white;
-  filter: none;
-  opacity: 0.85;
+  background-color: #018E42; /* verde vibrante */
+  color: white;             /* texto blanco para contraste */
+  opacity: 1;               /* sin transparencia para que el color sea sólido */
   cursor: default;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
+  transition: background-color 0.3s ease;
 }
