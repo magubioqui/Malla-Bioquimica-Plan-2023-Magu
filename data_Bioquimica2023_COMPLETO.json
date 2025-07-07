@@ -2,43 +2,39 @@
   "materias": [
     {
       "id": 7,
-      "nombre": "Qu\u00edmica General e Inorg\u00e1nica",
+      "nombre": "Química General e Inorganica",
       "cuatrimestre": 3,
       "correlativas_pc": [],
       "aprobada": false
     },
     {
       "id": 8,
-      "nombre": "Matem\u00e1tica",
+      "nombre": "Matemática",
       "cuatrimestre": 3,
       "correlativas_pc": [],
       "aprobada": false
     },
     {
       "id": 9,
-      "nombre": "Anatom\u00eda e Histolog\u00eda",
+      "nombre": "Anatomía e Histología",
       "cuatrimestre": 3,
       "correlativas_pc": [],
       "aprobada": false
     },
     {
       "id": 10,
-      "nombre": "Biolog\u00eda Celular y Molecular",
+      "nombre": "Fisica",
       "cuatrimestre": 4,
-      "correlativas_pc": [
-        9
-      ],
+      "correlativas_pc": [8],
       "aprobada": false
     },
     {
       "id": 11,
-      "nombre": "Fisiolog\u00eda",
-      "cuatrimestre": 6,
-      "correlativas_pc": [
-        10
-      ],
+      "nombre": "Biología Celular y Molecular",
+      "cuatrimestre": 4,
+      "correlativas_pc": [9],
       "aprobada": false
-    },
+     }
     {
       "id": 12,
       "nombre": "Fisiopatolog\u00eda",
