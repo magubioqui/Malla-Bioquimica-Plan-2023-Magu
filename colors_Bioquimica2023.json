@@ -1,1 +1,10 @@
-{"introductoria": "#b0d0ff", "media": "#a4f3c1", "avanzada": "#ffd8a8", "taller": "#e2c6ff", "integrador": "#ffa0a0"}
+
+{
+  "introductoria": "#b0d0ff",
+  "media": "#a4f3c1",
+  "avanzada": "#ffd8a8",
+  "taller": "#e2c6ff",
+  "integrador": "#ffa0a0",
+  "ciclo_comun": "#d0f0ff",
+  "ciclo_superior": "#f0d0ff"
+}

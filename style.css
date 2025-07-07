@@ -1,1 +1,34 @@
-body { font-family: sans-serif; margin: 2rem; } #malla { display: flex; gap: 1rem; flex-wrap: nowrap; overflow-x: auto; }
+
+body {
+  font-family: sans-serif;
+  margin: 2rem;
+}
+#malla {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.materia {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: #eee;
+  cursor: pointer;
+}
+.materia.habilitada {
+  background-color: #d0f0c0;
+}
+.materia.bloqueada {
+  background-color: #f0f0f0;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.materia.tachada {
+  text-decoration: line-through;
+  background-color: #ccc;
+}
