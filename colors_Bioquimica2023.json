@@ -1,10 +1,9 @@
-
 {
-  "introductoria": "#b0d0ff",
-  "media": "#a4f3c1",
-  "avanzada": "#ffd8a8",
-  "taller": "#e2c6ff",
-  "integrador": "#ffa0a0",
-  "ciclo_comun": "#d0f0ff",
-  "ciclo_superior": "#f0d0ff"
+  "introductoria": "#AEDFF7",
+  "media": "#FFC57E",
+  "avanzada": "#FF7E7E",
+  "taller": "#E2C6FF",
+  "integrador": "#F7E287",
+  "optativa": "#DDDDEE",
+  "comun": "#D4C3FF"
 }

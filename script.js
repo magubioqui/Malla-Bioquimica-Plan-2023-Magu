@@ -1,42 +1,50 @@
-
-fetch('data_Bioquimica2023.json')
-  .then(res => res.json())
+fetch("data_Bioquimica2023_COMPLETO.json")
+  .then(response => response.json())
   .then(data => {
-    const materias = data.materias;
-    const mallaDiv = document.getElementById('malla');
+    const saved = JSON.parse(localStorage.getItem("bioquimica2023")) || {};
+    data.materias.forEach(m => m.aprobada = saved[m.id] || false);
 
-    const columnas = {};
-    materias.forEach(mat => {
-      if (!columnas[mat.cuatrimestre]) columnas[mat.cuatrimestre] = [];
-      columnas[mat.cuatrimestre].push(mat);
+    const malla = document.getElementById("malla");
+    const grupos = {};
+    data.materias.forEach(m => {
+      const key = m.cuatrimestre;
+      if (!grupos[key]) grupos[key] = [];
+      grupos[key].push(m);
     });
 
-    const aprobadas = new Set();
-    const render = () => {
-      mallaDiv.innerHTML = '';
-      Object.keys(columnas).sort((a, b) => a - b).forEach(cuatri => {
-        const col = document.createElement('div');
-        col.className = 'column';
-        columnas[cuatri].forEach(mat => {
-          const div = document.createElement('div');
-          div.className = 'materia';
-          div.textContent = mat.nombre;
-          const puedeCursar = mat.correlativas_pc.every(id => aprobadas.has(id));
-          if (aprobadas.has(mat.id)) {
-            div.classList.add('tachada');
-          } else if (puedeCursar) {
-            div.classList.add('habilitada');
-            div.onclick = () => {
-              aprobadas.add(mat.id);
-              render();
-            };
-          } else {
-            div.classList.add('bloqueada');
-          }
-          col.appendChild(div);
+    function render() {
+      malla.innerHTML = "";
+      Object.keys(grupos).sort((a,b) => parseInt(a)-parseInt(b)).forEach(key => {
+        const col = document.createElement("div");
+        col.className = "cuatrimestre";
+        col.innerHTML = "<h2>" + (key>0 ? key + "º Cuatrimestre" : "Materias especiales") + "</h2>";
+        grupos[key].forEach(m => {
+          const btn = document.createElement("div");
+          btn.className = "materia";
+          btn.innerText = m.nombre;
+
+          const habilitada = m.correlativas_pc.every(id => {
+            const req = data.materias.find(x => x.id === id);
+            return req && req.aprobada;
+          });
+
+          if (habilitada) btn.classList.add("habilitada");
+          if (m.aprobada) btn.classList.add("tachado");
+
+          btn.onclick = () => {
+            if (!btn.classList.contains("habilitada")) return;
+            m.aprobada = !m.aprobada;
+            localStorage.setItem("bioquimica2023", JSON.stringify(
+              Object.fromEntries(data.materias.map(x => [x.id, x.aprobada]))
+            ));
+            render();
+          };
+
+          col.appendChild(btn);
         });
-        mallaDiv.appendChild(col);
+        malla.appendChild(col);
       });
-    };
+    }
+
     render();
   });
