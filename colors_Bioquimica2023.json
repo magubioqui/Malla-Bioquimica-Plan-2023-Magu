@@ -1,9 +1,8 @@
 {
-  "introductoria": "#AEDFF7",
-  "media": "#FFC57E",
-  "avanzada": "#FF7E7E",
-  "taller": "#E2C6FF",
-  "integrador": "#F7E287",
-  "optativa": "#DDDDEE",
-  "comun": "#D4C3FF"
+  "Ciclo Común": "#133C55",
+  "Ciclo Superior": "#372668",
+  "Electivas Ciclo Comun": "#1A5274",
+  "Taller": "#D782BA",
+  "Integrador": "AB3684",
+  "Electivas Ciclo Superior": "#5E42B3",
 }
