@@ -48,10 +48,10 @@ body {
 
 .materia.tachado {
   text-decoration: line-through;
-  opacity: 0.6;
   background-color: #018E42;
   color: white;
-  filter: grayscale(30%);
+  filter: none;
+  opacity: 0.85;
   cursor: default;
   transition: background-color 0.3s ease, opacity 0.3s ease;
 }
