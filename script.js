@@ -4,7 +4,7 @@ fetch("colors_Bioquimica2023.json")
   .then(res => res.json())
   .then(dataColores => {
     colores = dataColores;
-    
+
     fetch("data_Bioquimica2023_COMPLETO.json")
       .then(response => response.json())
       .then(data => {
@@ -22,28 +22,17 @@ fetch("colors_Bioquimica2023.json")
         function render() {
           malla.innerHTML = "";
 
-          // Definir los ciclos según cuatrimestres
-          const cicloComun = [3, 4, 5, 6];
-          const cicloSuperior = [7, 8, 9, 10, 11];
+          const cicloComun = [[3, 4], [5, 6]];
+          const cicloSuperior = [[7, 8], [9, 10], [11]];
+          const materiasEspeciales = grupos[0] || grupos["0"] || [];
 
-          // Ordenar cuatrimestres existentes
-          const cuatrimestres = Object.keys(grupos)
-            .map(Number)
-            .sort((a,b) => a-b);
-
-          // Agrupar en pares para apilar (3 con 4, 5 con 6, etc)
-          let paresCuatrimestres = [];
-          for (let i = 0; i < cuatrimestres.length; i += 2) {
-            paresCuatrimestres.push([cuatrimestres[i], cuatrimestres[i+1]]);
-          }
-
-          // Función para crear columna apilada con dos cuatrimestres
-          function crearColumna(cuatriPar) {
+          function crearColumna(cuatris) {
             const col = document.createElement("div");
             col.className = "columna-pareada";
 
-            cuatriPar.forEach(cuatri => {
-              if (!cuatri) return; // puede faltar el segundo cuatri en par impar
+            cuatris.forEach(cuatri => {
+              if (!grupos[cuatri]) return;
+
               const contenedorCuatri = document.createElement("div");
               contenedorCuatri.className = "cuatrimestre-apilado";
               contenedorCuatri.innerHTML = `<h2>${cuatri}º Cuatrimestre</h2>`;
@@ -85,37 +74,73 @@ fetch("colors_Bioquimica2023.json")
             return col;
           }
 
-          // Crear contenedores para Ciclo Común y Ciclo Superior
-          const contenedorComun = document.createElement("div");
-          contenedorComun.className = "contenedor-ciclo";
-          const tituloComun = document.createElement("h1");
-          tituloComun.innerText = "Ciclo Común";
-          contenedorComun.appendChild(tituloComun);
+          function crearBloqueCiclo(nombre, pares) {
+            const contenedor = document.createElement("div");
+            contenedor.className = "contenedor-ciclo";
 
-          const contenedorSuperior = document.createElement("div");
-          contenedorSuperior.className = "contenedor-ciclo";
-          const tituloSuperior = document.createElement("h1");
-          tituloSuperior.innerText = "Ciclo Superior";
-          contenedorSuperior.appendChild(tituloSuperior);
+            const titulo = document.createElement("h1");
+            titulo.innerText = nombre;
+            contenedor.appendChild(titulo);
 
-          // Distribuir pares de cuatrimestres en los ciclos correspondientes
-          paresCuatrimestres.forEach(par => {
-            const primerCuatri = par[0];
-            if (cicloComun.includes(primerCuatri)) {
-              contenedorComun.appendChild(crearColumna(par));
-            } else if (cicloSuperior.includes(primerCuatri)) {
-              contenedorSuperior.appendChild(crearColumna(par));
-            } else {
-              // Por si hay cuatrimestres fuera de esos ciclos (ej. especiales)
-              malla.appendChild(crearColumna(par));
-            }
-          });
+            pares.forEach(par => {
+              contenedor.appendChild(crearColumna(par));
+            });
 
-          // Solo agregar al DOM si hay materias
-          if (contenedorComun.children.length > 1) malla.appendChild(contenedorComun);
-          if (contenedorSuperior.children.length > 1) malla.appendChild(contenedorSuperior);
+            return contenedor;
+          }
+
+          const bloqueComun = crearBloqueCiclo("Ciclo Común", cicloComun);
+          const bloqueSuperior = crearBloqueCiclo("Ciclo Superior", cicloSuperior);
+
+          malla.appendChild(bloqueComun);
+          malla.appendChild(bloqueSuperior);
+
+          if (materiasEspeciales.length > 0) {
+            const col = document.createElement("div");
+            col.className = "cuatrimestre";
+            col.innerHTML = "<h2>Materias especiales</h2>";
+
+            materiasEspeciales.forEach(m => {
+              const btn = document.createElement("div");
+              btn.className = "materia";
+              btn.innerText = m.nombre;
+
+              if (m.tipo && colores[m.tipo]) {
+                btn.style.backgroundColor = colores[m.tipo];
+              }
+
+              const habilitada = m.correlativas_pc.every(id => {
+                const req = data.materias.find(x => x.id === id);
+                return req && req.aprobada;
+              });
+
+              if (habilitada) btn.classList.add("habilitada");
+              else btn.classList.add("inhabilitada");
+
+              if (m.aprobada) btn.classList.add("tachado");
+
+              btn.onclick = () => {
+                if (!btn.classList.contains("habilitada")) return;
+                m.aprobada = !m.aprobada;
+                localStorage.setItem("bioquimica2023", JSON.stringify(
+                  Object.fromEntries(data.materias.map(x => [x.id, x.aprobada]))
+                ));
+                render();
+              };
+
+              col.appendChild(btn);
+            });
+
+            malla.appendChild(col);
+          }
         }
 
         render();
+      })
+      .catch(error => {
+        console.error("Error al cargar data_Bioquimica2023_COMPLETO.json:", error);
       });
+  })
+  .catch(error => {
+    console.error("Error al cargar colors_Bioquimica2023.json:", error);
   });
