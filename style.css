@@ -22,39 +22,40 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-width: 220px; /* tamaño similar al que tenías en .cuatrimestre */
+  min-width: 180px; /* tamaño similar al que tenías en .cuatrimestre */
 }
 
 .cuatrimestre-apilado {
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 8px;
   border-radius: 6px;
   background: white;
 }
 
 .contenedor-ciclo > h1 {
   width: 100%;
-  font-size: 1.8em;
+  font-size: 1.5em;
   margin-bottom: 10px;
   color: #333;
 }
 
 .cuatrimestre {
-  min-width: 220px;
+  min-width: 180px;
 }
 
 .cuatrimestre h2 {
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1.5em;
   margin-bottom: 0.5rem;
 }
 
 .materia {
-  margin: 0.4rem;
-  padding: 0.6rem;
+  margin: 0.3rem;
+  padding: 0.4rem;
   border-radius: 5px;
   cursor: default;
   border: 1px solid #bbb;
+  font-size: 1em
 
   /* No poner background-color fijo aquí para que JS lo aplique */
   color: #222;
@@ -95,7 +96,7 @@ body {
 }
 
 .aclaracion {
-  font-size: 1.1em;
+  font-size: 1em;
   color: #555;
   margin: 0.3rem 0;
   font-style: italic;
