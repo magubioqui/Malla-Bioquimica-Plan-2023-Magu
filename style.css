@@ -83,3 +83,16 @@ body {
   cursor: default;
   transition: background-color 0.3s ease;
 }
+
+.contenedor-notas {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ccc;
+}
+
+.aclaracion {
+  font-size: 0.85em;
+  color: #555;
+  margin: 0.3rem 0;
+  font-style: italic;
+}
