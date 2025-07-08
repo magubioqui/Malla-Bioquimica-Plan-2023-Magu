@@ -153,7 +153,7 @@ notas.forEach(texto => {
   contenedorNotas.appendChild(p);
 });
 
-malla.appendChild(contenedorNotas);
+document.getElementById("notas").appendChild(contenedorNotas);
 }
 
         render();
