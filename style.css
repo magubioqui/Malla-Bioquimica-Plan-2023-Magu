@@ -22,7 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-width: 180px; /* tamaño similar al que tenías en .cuatrimestre */
+  min-width: 160px; /* tamaño similar al que tenías en .cuatrimestre */
 }
 
 .cuatrimestre-apilado {
@@ -40,7 +40,7 @@ body {
 }
 
 .cuatrimestre {
-  min-width: 180px;
+  min-width: 160px;
 }
 
 .cuatrimestre h2 {
