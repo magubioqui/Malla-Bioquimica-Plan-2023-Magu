@@ -88,6 +88,10 @@ body {
   margin-top: 1rem;
   padding-top: 1rem;
   border-top: 1px solid #ccc;
+
+  flex-basis: 100%;       /* Ocupa todo el ancho disponible */
+  display: flex;
+  flex-direction: column;
 }
 
 .aclaracion {
