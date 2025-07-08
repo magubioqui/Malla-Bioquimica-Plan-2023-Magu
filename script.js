@@ -4,7 +4,7 @@ fetch("colors_Bioquimica2023.json")
   .then(res => res.json())
   .then(dataColores => {
     colores = dataColores;
-
+    
     fetch("data_Bioquimica2023_COMPLETO.json")
       .then(response => response.json())
       .then(data => {
@@ -22,21 +22,28 @@ fetch("colors_Bioquimica2023.json")
         function render() {
           malla.innerHTML = "";
 
-          const cicloComun = [3,4,5,6];
-          const cicloSuperior = [7,8,9,10,11];
+          // Definir los ciclos según cuatrimestres
+          const cicloComun = [3, 4, 5, 6];
+          const cicloSuperior = [7, 8, 9, 10, 11];
 
-          const cuatrimestres = Object.keys(grupos).map(Number).sort((a,b) => a-b);
-          let columnas = [];
+          // Ordenar cuatrimestres existentes
+          const cuatrimestres = Object.keys(grupos)
+            .map(Number)
+            .sort((a,b) => a-b);
+
+          // Agrupar en pares para apilar (3 con 4, 5 con 6, etc)
+          let paresCuatrimestres = [];
           for (let i = 0; i < cuatrimestres.length; i += 2) {
-            columnas.push([cuatrimestres[i], cuatrimestres[i+1]]);
+            paresCuatrimestres.push([cuatrimestres[i], cuatrimestres[i+1]]);
           }
 
-          function crearColumna(cuatriArr) {
+          // Función para crear columna apilada con dos cuatrimestres
+          function crearColumna(cuatriPar) {
             const col = document.createElement("div");
             col.className = "columna-pareada";
 
-            cuatriArr.forEach((cuatri) => {
-              if (!cuatri) return;
+            cuatriPar.forEach(cuatri => {
+              if (!cuatri) return; // puede faltar el segundo cuatri en par impar
               const contenedorCuatri = document.createElement("div");
               contenedorCuatri.className = "cuatrimestre-apilado";
               contenedorCuatri.innerHTML = `<h2>${cuatri}º Cuatrimestre</h2>`;
@@ -78,6 +85,7 @@ fetch("colors_Bioquimica2023.json")
             return col;
           }
 
+          // Crear contenedores para Ciclo Común y Ciclo Superior
           const contenedorComun = document.createElement("div");
           contenedorComun.className = "contenedor-ciclo";
           const tituloComun = document.createElement("h1");
@@ -90,17 +98,20 @@ fetch("colors_Bioquimica2023.json")
           tituloSuperior.innerText = "Ciclo Superior";
           contenedorSuperior.appendChild(tituloSuperior);
 
-          columnas.forEach(par => {
+          // Distribuir pares de cuatrimestres en los ciclos correspondientes
+          paresCuatrimestres.forEach(par => {
             const primerCuatri = par[0];
             if (cicloComun.includes(primerCuatri)) {
               contenedorComun.appendChild(crearColumna(par));
             } else if (cicloSuperior.includes(primerCuatri)) {
               contenedorSuperior.appendChild(crearColumna(par));
             } else {
+              // Por si hay cuatrimestres fuera de esos ciclos (ej. especiales)
               malla.appendChild(crearColumna(par));
             }
           });
 
+          // Solo agregar al DOM si hay materias
           if (contenedorComun.children.length > 1) malla.appendChild(contenedorComun);
           if (contenedorSuperior.children.length > 1) malla.appendChild(contenedorSuperior);
         }
