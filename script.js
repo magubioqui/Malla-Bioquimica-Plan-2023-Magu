@@ -19,121 +19,121 @@ fetch("colors_Bioquimica2023.json")
           grupos[key].push(m);
         });
 
-        function render() {
-          malla.innerHTML = "";
+       function render() {
+  malla.innerHTML = "";
 
-          const cicloComun = [[3, 4], [5, 6]];
-          const cicloSuperior = [[7, 8], [9, 10], [11]];
-          const materiasEspeciales = grupos[0] || grupos["0"] || [];
+  const cicloComun = [[3, 4], [5, 6]];
+  const cicloSuperior = [[7, 8], [9, 10], [11]];
 
-          function crearColumna(cuatris) {
-            const col = document.createElement("div");
-            col.className = "columna-pareada";
+  const materiasEspeciales = grupos[0] || grupos["0"] || [];
 
-            cuatris.forEach(cuatri => {
-              if (!grupos[cuatri]) return;
+  function crearColumna(cuatris) {
+    const col = document.createElement("div");
+    col.className = "columna-pareada";
 
-              const contenedorCuatri = document.createElement("div");
-              contenedorCuatri.className = "cuatrimestre-apilado";
-              contenedorCuatri.innerHTML = `<h2>${cuatri}º Cuatrimestre</h2>`;
+    cuatris.forEach(cuatri => {
+      if (!grupos[cuatri]) return;
 
-              grupos[cuatri].forEach(m => {
-                const btn = document.createElement("div");
-                btn.className = "materia";
-                btn.innerText = m.nombre;
+      const contenedorCuatri = document.createElement("div");
+      contenedorCuatri.className = "cuatrimestre-apilado";
+      contenedorCuatri.innerHTML = `<h2>${cuatri}º Cuatrimestre</h2>`;
 
-                if (m.tipo && colores[m.tipo]) {
-                  btn.style.backgroundColor = colores[m.tipo];
-                }
+      grupos[cuatri].forEach(m => {
+        const btn = document.createElement("div");
+        btn.className = "materia";
+        btn.innerText = m.nombre;
 
-                const habilitada = m.correlativas_pc.every(id => {
-                  const req = data.materias.find(x => x.id === id);
-                  return req && req.aprobada;
-                });
-
-                if (habilitada) btn.classList.add("habilitada");
-                else btn.classList.add("inhabilitada");
-
-                if (m.aprobada) btn.classList.add("tachado");
-
-                btn.onclick = () => {
-                  if (!btn.classList.contains("habilitada")) return;
-                  m.aprobada = !m.aprobada;
-                  localStorage.setItem("bioquimica2023", JSON.stringify(
-                    Object.fromEntries(data.materias.map(x => [x.id, x.aprobada]))
-                  ));
-                  render();
-                };
-
-                contenedorCuatri.appendChild(btn);
-              });
-
-              col.appendChild(contenedorCuatri);
-            });
-
-            return col;
-          }
-
-          function crearBloqueCiclo(nombre, pares) {
-            const contenedor = document.createElement("div");
-            contenedor.className = "contenedor-ciclo";
-
-            const titulo = document.createElement("h1");
-            titulo.innerText = nombre;
-            contenedor.appendChild(titulo);
-
-            pares.forEach(par => {
-              contenedor.appendChild(crearColumna(par));
-            });
-
-            return contenedor;
-          }
-
-          const bloqueComun = crearBloqueCiclo("Ciclo Común", cicloComun);
-          const bloqueSuperior = crearBloqueCiclo("Ciclo Superior", cicloSuperior);
-
-          malla.appendChild(bloqueComun);
-          malla.appendChild(bloqueSuperior);
-
-          if (materiasEspeciales.length > 0) {
-            const col = document.createElement("div");
-            col.className = "cuatrimestre";
-            col.innerHTML = "<h2>Materias especiales</h2>";
-
-            materiasEspeciales.forEach(m => {
-              const btn = document.createElement("div");
-              btn.className = "materia";
-              btn.innerText = m.nombre;
-
-              if (m.tipo && colores[m.tipo]) {
-                btn.style.backgroundColor = colores[m.tipo];
-              }
-
-              const habilitada = m.correlativas_pc.every(id => {
-                const req = data.materias.find(x => x.id === id);
-                return req && req.aprobada;
-              });
-
-              if (habilitada) btn.classList.add("habilitada");
-              else btn.classList.add("inhabilitada");
-
-              if (m.aprobada) btn.classList.add("tachado");
-
-              btn.onclick = () => {
-                if (!btn.classList.contains("habilitada")) return;
-                m.aprobada = !m.aprobada;
-                localStorage.setItem("bioquimica2023", JSON.stringify(
-                  Object.fromEntries(data.materias.map(x => [x.id, x.aprobada]))
-                ));
-                render();
-              };
-
-              col.appendChild(btn);
-            });
-
-            malla.appendChild(col);
-          }
+        if (m.tipo && colores[m.tipo]) {
+          btn.style.backgroundColor = colores[m.tipo];
         }
+
+        const habilitada = m.correlativas_pc.every(id => {
+          const req = data.materias.find(x => x.id === id);
+          return req && req.aprobada;
+        });
+
+        if (habilitada) btn.classList.add("habilitada");
+        else btn.classList.add("inhabilitada");
+
+        if (m.aprobada) btn.classList.add("tachado");
+
+        btn.onclick = () => {
+          if (!btn.classList.contains("habilitada")) return;
+          m.aprobada = !m.aprobada;
+          localStorage.setItem("bioquimica2023", JSON.stringify(
+            Object.fromEntries(data.materias.map(x => [x.id, x.aprobada]))
+          ));
+          render();
+        };
+
+        contenedorCuatri.appendChild(btn);
+      });
+
+      col.appendChild(contenedorCuatri);
+    });
+
+    return col;
+  }
+
+  function crearBloqueCiclo(nombre, pares) {
+    const contenedor = document.createElement("div");
+    contenedor.className = "contenedor-ciclo";
+
+    const titulo = document.createElement("h1");
+    titulo.innerText = nombre;
+    contenedor.appendChild(titulo);
+
+    pares.forEach(par => {
+      contenedor.appendChild(crearColumna(par));
+    });
+
+    return contenedor;
+  }
+
+  // Primero: materias especiales (cuatrimestre 0)
+  if (materiasEspeciales.length > 0) {
+    const col = document.createElement("div");
+    col.className = "cuatrimestre";
+    col.innerHTML = "<h2>Materias obligatorias sin cuatrimestre fijo</h2>";
+
+    materiasEspeciales.forEach(m => {
+      const btn = document.createElement("div");
+      btn.className = "materia";
+      btn.innerText = m.nombre;
+
+      if (m.tipo && colores[m.tipo]) {
+        btn.style.backgroundColor = colores[m.tipo];
+      }
+
+      const habilitada = m.correlativas_pc.every(id => {
+        const req = data.materias.find(x => x.id === id);
+        return req && req.aprobada;
+      });
+
+      if (habilitada) btn.classList.add("habilitada");
+      else btn.classList.add("inhabilitada");
+
+      if (m.aprobada) btn.classList.add("tachado");
+
+      btn.onclick = () => {
+        if (!btn.classList.contains("habilitada")) return;
+        m.aprobada = !m.aprobada;
+        localStorage.setItem("bioquimica2023", JSON.stringify(
+          Object.fromEntries(data.materias.map(x => [x.id, x.aprobada]))
+        ));
+        render();
+      };
+
+      col.appendChild(btn);
+    });
+
+    malla.appendChild(col);
+  }
+
+  // Luego: ciclos comunes y superiores
+  malla.appendChild(crearBloqueCiclo("Ciclo Común", cicloComun));
+  malla.appendChild(crearBloqueCiclo("Ciclo Superior", cicloSuperior));
+}
 
         render();
       })
