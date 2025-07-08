@@ -6,8 +6,37 @@ body {
 
 #malla {
   display: flex;
-  gap: 1rem;
+  gap: 20px; /* aumenté un poco el gap para separar mejor columnas */
   overflow-x: auto;
+}
+
+.contenedor-ciclo {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: nowrap;
+}
+
+.columna-pareada {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 220px; /* tamaño similar al que tenías en .cuatrimestre */
+}
+
+.cuatrimestre-apilado {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  background: white;
+}
+
+.contenedor-ciclo > h1 {
+  width: 100%;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .cuatrimestre {
