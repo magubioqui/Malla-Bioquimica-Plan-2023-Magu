@@ -133,6 +133,27 @@ fetch("colors_Bioquimica2023.json")
   // Luego: ciclos comunes y superiores
   malla.appendChild(crearBloqueCiclo("Ciclo Común", cicloComun));
   malla.appendChild(crearBloqueCiclo("Ciclo Superior", cicloSuperior));
+
+   // Nota general al final
+const contenedorNotas = document.createElement("div");
+contenedorNotas.className = "contenedor-notas";
+
+const notas = [
+  "Los cuatrimestres 5, 7, 9 y 11 se dictan en el primer cuatrimestre del año.",
+  "Los cuatrimestres 4, 6, 8 y 10 se dictan en el segundo cuatrimestre del año.",
+  "** Materias bimestrales.",
+  "Los TALLERES DE INTRODUCCIÓN al ROL PROFESIONAL y CIENTÍFICO  se realizan entre el 3er y 6to cuatrimestre.",
+  "- LABORATORIO INTEGRADOR: Consta de 20 horas totales distribuidas en 5 días consecutivos. Para realizar esta actividad se requiere haber aprobado los TPS de las materias 1 a 18. Es requisito realizar esta actividad antes de comenzar a cursar cualquier asignatura del 9no cuatrimestre."
+]; 
+
+notas.forEach(texto => {
+  const p = document.createElement("p");
+  p.className = "aclaracion";
+  p.innerText = texto;
+  contenedorNotas.appendChild(p);
+});
+
+malla.appendChild(contenedorNotas);
 }
 
         render();
