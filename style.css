@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fff0f5;
+  background-color: #f3eaff;
   margin: 0;
   padding: 20px;
 }
@@ -8,7 +8,7 @@ body {
 h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  color: #c2185b;
+  color: #372668; /* color principal */
   text-align: center;
   margin-bottom: 40px;
 }
@@ -23,55 +23,56 @@ h1 {
 
 .cuatrimestre {
   min-width: 220px;
-  background-color: #ffe4ec;
-  border: 2px solid #f48fb1;
+  background-color: #e6ddf9;
+  border: 2px solid #c2a8f0;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(55, 38, 104, 0.1);
 }
 
 .cuatrimestre h2 {
   text-align: center;
-  color: #ad1457;
+  color: #372668;
   font-size: 1.1em;
   margin-bottom: 12px;
-  border-bottom: 1px solid #f8bbd0;
+  border-bottom: 1px solid #c2a8f0;
   padding-bottom: 6px;
 }
 
 /* MATERIA GENERAL */
 .materia {
-  background: linear-gradient(145deg, #f8bbd0, #ec9fb9);
-  border: 1px solid #c2185b;
+  background: linear-gradient(145deg, #c2a8f0, #b695d3); /* nuevo violeta suave */
+  border: 1px solid #372668;
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 10px;
   text-align: center;
-  cursor: pointer;
-  color: #880e4f;
+  color: #2c1b4e;
   font-weight: 600;
-  box-shadow: 4px 4px 8px #c28aa2, -4px -4px 8px #ffcee1;
+  box-shadow: 4px 4px 8px #a590c7, -4px -4px 8px #e1d4f5;
   transition: all 0.3s ease;
   user-select: none;
+  cursor: default;
 }
 
 /* HOVER (solo para habilitadas) */
 .materia.habilitada:hover {
-  background: linear-gradient(145deg, #f48fb1, #e47c9d);
-  box-shadow: 6px 6px 10px #b67288, -6px -6px 10px #ffbed4;
-  color: #5c0040;
+  background: linear-gradient(145deg, #b895e6, #a174db);
+  box-shadow: 6px 6px 10px #9673bf, -6px -6px 10px #decaf2;
+  color: #2e004d;
   transform: translateY(-3px);
+  cursor: pointer;
 }
 
 .materia.habilitada:active {
-  box-shadow: inset 3px 3px 5px #b67288, inset -3px -3px 5px #ffbed4;
+  box-shadow: inset 3px 3px 5px #9673bf, inset -3px -3px 5px #decaf2;
   transform: translateY(1px);
 }
 
 /* BLOQUEADA / INHABILITADA */
 .materia.inhabilitada {
-  filter: brightness(1.4) saturate(0.4); /* más clarito, menos saturado */
-  opacity: 0.7; /* se sigue viendo, pero más desactivado */
+  filter: brightness(1.4) saturate(0.4);
+  opacity: 0.7;
   cursor: not-allowed;
   border-style: dashed;
 }
