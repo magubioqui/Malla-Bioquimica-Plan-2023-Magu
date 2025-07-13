@@ -1,103 +1,89 @@
 body {
-  font-family: sans-serif;
-  background: #f5f5f5;
-  padding: 2rem;
+  font-family: Arial, sans-serif;
+  background-color: #fff0f5;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #c2185b;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 #malla {
   display: flex;
-  gap: 20px; /* aumenté un poco el gap para separar mejor columnas */
+  gap: 30px;
   overflow-x: auto;
-}
-
-.contenedor-ciclo {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  margin-bottom: 30px;
-  flex-wrap: nowrap;
-}
-
-.columna-pareada {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  min-width: 160px; /* tamaño similar al que tenías en .cuatrimestre */
-}
-
-.cuatrimestre-apilado {
-  border: 1px solid #ccc;
-  padding: 8px;
-  border-radius: 6px;
-  background: white;
-}
-
-.contenedor-ciclo > h1 {
-  width: 100%;
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  color: #333;
+  padding: 10px;
+  justify-content: flex-start;
 }
 
 .cuatrimestre {
-  min-width: 160px;
+  min-width: 220px;
+  background-color: #ffe4ec;
+  border: 2px solid #f48fb1;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .cuatrimestre h2 {
   text-align: center;
-  font-size: 1.5em;
-  margin-bottom: 0.5rem;
+  color: #ad1457;
+  font-size: 1.1em;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f8bbd0;
+  padding-bottom: 6px;
 }
 
+/* MATERIA GENERAL (equivale a .ramo) */
 .materia {
-  margin: 0.3rem;
-  padding: 0.4rem;
-  border-radius: 5px;
-  cursor: default;
-  border: 1px solid #bbb;
-  font-size: 1em
-
-  /* No poner background-color fijo aquí para que JS lo aplique */
-  color: #222;
-  opacity: 0.5; /* por defecto más clarito */
-  transition: opacity 0.3s ease, filter 0.3s ease;
-}
-
-.materia.habilitada {
-  opacity: 1;
+  background: linear-gradient(145deg, #f8bbd0, #ec9fb9);
+  border: 1px solid #c2185b;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  text-align: center;
   cursor: pointer;
-  filter: none;
+  color: #880e4f;
+  font-weight: 600;
+  box-shadow: 4px 4px 8px #c28aa2, -4px -4px 8px #ffcee1;
+  transition: all 0.3s ease;
+  user-select: none;
 }
 
+/* HOVER (solo para habilitadas) */
+.materia.habilitada:hover {
+  background: linear-gradient(145deg, #f48fb1, #e47c9d);
+  box-shadow: 6px 6px 10px #b67288, -6px -6px 10px #ffbed4;
+  color: #5c0040;
+  transform: translateY(-3px);
+}
+
+.materia.habilitada:active {
+  box-shadow: inset 3px 3px 5px #b67288, inset -3px -3px 5px #ffbed4;
+  transform: translateY(1px);
+}
+
+/* BLOQUEADA / INHABILITADA */
 .materia.inhabilitada {
-  /* Aclara el color que le pone JS, sin cambiar fondo fijo */
-  filter: brightness(1.4) saturate(0.5);
+  background: none;
+  color: #999;
+  border-style: dashed;
   cursor: not-allowed;
-  opacity: 0.3;
+  box-shadow: none;
 }
 
+/* APROBADA (tachada) */
 .materia.tachado {
+  background: linear-gradient(145deg, #d1bee7, #b695d3) !important;
+  color: #4a148c;
+  border-color: #6a1b9a;
   text-decoration: line-through;
-  background-color: #018E42; /* verde vibrante */
-  color: white;             /* texto blanco para contraste */
-  opacity: 1;               /* sin transparencia para que el color sea sólido */
-  cursor: default;
-  transition: background-color 0.3s ease;
-}
-
-.contenedor-notas {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #ccc;
-
-  flex-basis: 100%;       /* Ocupa todo el ancho disponible */
-  display: flex;
-  flex-direction: column;
-}
-
-.aclaracion {
-  font-size: 1em;
-  color: #555;
-  margin: 0.3rem 0;
   font-style: italic;
+  box-shadow: 4px 4px 8px #8a69a2, -4px -4px 8px #c6aee1;
+  cursor: default;
 }
