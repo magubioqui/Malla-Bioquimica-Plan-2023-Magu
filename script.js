@@ -50,24 +50,36 @@ fetch("colors_Bioquimica2023.json")
                   btn.style.backgroundColor = colores[m.tipo];
                 }
 
-                const habilitada = m.correlativas_pc.every(id => {
-                  const req = data.materias.find(x => x.id === id);
-                  return req && req.aprobada;
-                });
+               // Añadí este bloque justo donde calculás habilitada
 
-                if (habilitada) btn.classList.add("habilitada");
-                else btn.classList.add("inhabilitada");
+if (m.id === 300) {
+  console.log("Verificando habilitación de Laboratorio Integrador (300)");
+  console.log("Estado de correlativas (7 a 18):");
+  m.correlativas_pc.forEach(id => {
+    const mat = data.materias.find(x => x.id === id);
+    console.log(`Materia ${id} - ${mat.nombre}: aprobada = ${mat.aprobada}`);
+  });
+}
 
-                if (m.aprobada) btn.classList.add("tachado");
+const habilitada = m.correlativas_pc.length === 0 ? true : m.correlativas_pc.every(id => {
+  const req = data.materias.find(x => x.id === id);
+  return req && req.aprobada === true;
+});
 
-                btn.onclick = () => {
-                  if (!btn.classList.contains("habilitada")) return;
-                  m.aprobada = !m.aprobada;
-                  localStorage.setItem("bioquimica2023", JSON.stringify(
-                    Object.fromEntries(data.materias.map(x => [x.id, x.aprobada]))
-                  ));
-                  render();
-                };
+if (habilitada) btn.classList.add("habilitada");
+else btn.classList.add("inhabilitada");
+
+if (m.aprobada) btn.classList.add("tachado");
+
+btn.onclick = () => {
+  if (!btn.classList.contains("habilitada")) return;
+  m.aprobada = !m.aprobada;
+  localStorage.setItem("bioquimica2023", JSON.stringify(
+    Object.fromEntries(data.materias.map(x => [x.id, x.aprobada]))
+  ));
+  render();
+};
+
 
                 contenedorCuatri.appendChild(btn);
               });
