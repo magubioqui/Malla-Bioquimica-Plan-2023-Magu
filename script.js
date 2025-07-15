@@ -94,7 +94,7 @@ fetch("colors_Bioquimica2023.json")
   if (materiasEspeciales.length > 0) {
     const col = document.createElement("div");
     col.className = "cuatrimestre";
-    col.innerHTML = "<h2>Materias obligatorias sin cuatrimestre fijo</h2>";
+    col.innerHTML = "<h2> Cursadas obligatorias sin cuatrimestre fijo</h2>";
 
     materiasEspeciales.forEach(m => {
       const btn = document.createElement("div");
@@ -143,7 +143,7 @@ const notas = [
   "Los cuatrimestres 4, 6, 8 y 10 se dictan en el segundo cuatrimestre del año.",
   "** Materias bimestrales.",
   "Los TALLERES DE INTRODUCCIÓN al ROL PROFESIONAL y CIENTÍFICO  se realizan entre el 3er y 6to cuatrimestre.",
-  "- LABORATORIO INTEGRADOR: Consta de 20 horas totales distribuidas en 5 días consecutivos. Para realizar esta actividad se requiere haber aprobado los TPS de las materias 1 a 18. Es requisito realizar esta actividad antes de comenzar a cursar cualquier asignatura del 9no cuatrimestre."
+  "- LABORATORIO INTEGRADOR: Consta de 20 horas totales distribuidas en 5 días consecutivos. Para realizar esta actividad se requiere haber aprobado los TPS de las materias 3 a 18. Es requisito realizar esta actividad antes de comenzar a cursar cualquier asignatura del 9no cuatrimestre."
 ]; 
 
 notas.forEach(texto => {
