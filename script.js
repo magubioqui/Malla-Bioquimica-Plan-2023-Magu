@@ -50,8 +50,6 @@ fetch("colors_Bioquimica2023.json")
                   btn.style.backgroundColor = colores[m.tipo];
                 }
 
-               // Añadí este bloque justo donde calculás habilitada
-
 if (m.id === 300) {
   console.log("Verificando habilitación de Laboratorio Integrador (300)");
   console.log("Estado de correlativas (7 a 18):");
@@ -61,9 +59,13 @@ if (m.id === 300) {
   });
 }
 
-const habilitada = m.correlativas_pc.length === 0 ? true : m.correlativas_pc.every(id => {
-  const req = data.materias.find(x => x.id === id);
-  return req && req.aprobada === true;
+const habilitada = m.correlativas_pc.every(id => {
+  const correlativa = data.materias.find(mat => mat.id === id);
+  if (!correlativa) {
+    console.warn(`⚠️ Correlativa con id ${id} no encontrada para ${m.nombre}`);
+    return false;
+  }
+  return correlativa.aprobada === true;
 });
 
 if (habilitada) btn.classList.add("habilitada");
