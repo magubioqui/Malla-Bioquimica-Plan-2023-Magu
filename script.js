@@ -8,8 +8,11 @@ fetch("colors_Bioquimica2023.json")
     fetch("data_Bioquimica2023_COMPLETO.json")
       .then(response => response.json())
       .then(data => {
+        // Cargar progreso guardado de materias
         const saved = JSON.parse(localStorage.getItem("bioquimica2023")) || {};
-        data.materias.forEach(m => m.aprobada = saved[m.id] || false);
+        data.materias.forEach(m => {
+          m.aprobada = saved.hasOwnProperty(m.id) ? saved[m.id] : false;
+        });
 
         const malla = document.getElementById("malla");
         const grupos = {};
@@ -90,11 +93,11 @@ fetch("colors_Bioquimica2023.json")
             return contenedor;
           }
 
-          // Primero: materias especiales (cuatrimestre 0)
+          // Materias especiales sin cuatrimestre fijo
           if (materiasEspeciales.length > 0) {
             const col = document.createElement("div");
             col.className = "cuatrimestre";
-            col.innerHTML = "<h2> Cursadas obligatorias sin cuatrimestre fijo</h2>";
+            col.innerHTML = "<h2>Cursadas obligatorias sin cuatrimestre fijo</h2>";
 
             materiasEspeciales.forEach(m => {
               const btn = document.createElement("div");
@@ -130,11 +133,11 @@ fetch("colors_Bioquimica2023.json")
             malla.appendChild(col);
           }
 
-          // Luego: ciclos comunes y superiores
+          // Ciclo Común y Superior
           malla.appendChild(crearBloqueCiclo("Ciclo Común", cicloComun));
           malla.appendChild(crearBloqueCiclo("Ciclo Superior", cicloSuperior));
 
-          // Nota general al final (con control para que no se repita)
+          // Notas (una sola vez)
           const notasContainer = document.getElementById("notas");
           if (!notasContainer.querySelector(".contenedor-notas")) {
             const contenedorNotas = document.createElement("div");
