@@ -145,14 +145,6 @@
       "tipo": "Ciclo Superior"
     },
     {
-      "id": 24,
-      "nombre": "Farmacología",
-      "cuatrimestre": 8,
-      "correlativas_pc": [14, 18, 19],
-      "aprobada": false,
-      "tipo": "Ciclo Superior"
-    },
-    {
       "id": 25,
       "nombre": "Biotecnología**",
       "cuatrimestre": 8,
@@ -324,7 +316,7 @@
     },
     {
       "id": 103,
-      "nombre": "Legislaci\u00f3n Bioqu\u00edmica y DDHH",
+      "nombre": "Legislación Bioquímica y DDHH**",
       "cuatrimestre": 0,
       "correlativas_pc": [],
       "aprobada": false,
@@ -332,7 +324,7 @@
     },
     {
       "id": 104,
-      "nombre": "Salud P\u00fablica",
+      "nombre": "Salud Pública**",
       "cuatrimestre": 0,
       "correlativas_pc": [],
       "aprobada": false,
